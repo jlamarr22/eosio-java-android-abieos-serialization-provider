@@ -3,6 +3,7 @@
 #include <cmath>
 #include "for_each_field.hpp"
 #include "fpconv.h"
+#include "fpconv.c"
 #include "stream.hpp"
 #include "types.hpp"
 #include <limits>

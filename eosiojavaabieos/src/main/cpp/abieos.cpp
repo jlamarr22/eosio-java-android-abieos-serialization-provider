@@ -2,6 +2,8 @@
 
 #include "abieos.h"
 #include "abieos.hpp"
+#include "abi.cpp"
+#include "crypto.cpp"
 
 #include <memory>
 
