@@ -27,7 +27,7 @@ Serialization providers are responsible for ABI-driven transaction and action se
 
 * Android Studio 3.3.2 or higher
 * NDK 18+ (C++ 17 standard support required)
-* Cmake 3.6.0+
+* Cmake 3.8.0+
 * Gradle 4.10.1+
 * Gradle Plugin 3.3.0+
 * For Android, Android 6 (Marshmallow)+
