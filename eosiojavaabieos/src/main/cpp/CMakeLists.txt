@@ -3,7 +3,8 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.8)
+project(eosiojavaabieos VERSION 0.1 LANGUAGES CXX C)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
@@ -22,7 +23,7 @@ add_library( # Sets the name of the library.
         abieos-lib.cpp
         abieos.cpp)
 
-target_include_directories(abieos-lib PRIVATE rapidjson/include)
+target_include_directories(abieos-lib PRIVATE rapidjson/include eosio/include)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
