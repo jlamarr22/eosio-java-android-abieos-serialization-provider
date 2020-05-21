@@ -7,6 +7,18 @@ cmake_minimum_required(VERSION 3.4.1)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
+if(NOT DEFINED SKIP_SUBMODULE_CHECK)
+  execute_process(COMMAND git submodule status --recursive
+                  COMMAND grep -c "^[+\-]"
+                  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                  OUTPUT_VARIABLE submodule_status
+                  OUTPUT_STRIP_TRAILING_WHITESPACE)
+  if(submodule_status GREATER 0)
+     message(FATAL_ERROR "git submodules are not up to date.
+Please run the command 'git submodule update --init --recursive'.")
+  endif()
+endif()
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -22,7 +34,7 @@ add_library( # Sets the name of the library.
         abieos-lib.cpp
         abieos.cpp)
 
-target_include_directories(abieos-lib PRIVATE rapidjson/include date/include)
+target_include_directories(abieos-lib PRIVATE external/abieos)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
