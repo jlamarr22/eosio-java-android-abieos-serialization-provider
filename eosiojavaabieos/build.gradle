@@ -4,11 +4,11 @@ apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -145,21 +145,4 @@ project.afterEvaluate {
 }
 
 //Remove artifactory{} block if you are not using Artifactory
-artifactory {
-    contextUrl = artifactory_contextURL
-    publish {
-        repository {
-            repoKey = artifactory_repo
 
-            username = artifactory_username
-            password = artifactory_password
-        }
-        defaults {
-            publications('maven')
-            publishArtifacts = true
-
-            properties = ['qa.level': 'basic', 'q.os': 'android', 'dev.team': 'core']
-            publishPom = true
-        }
-    }
-}
