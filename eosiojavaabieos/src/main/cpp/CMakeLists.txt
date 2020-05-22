@@ -22,7 +22,7 @@ add_library( # Sets the name of the library.
         abieos-lib.cpp
         abieos.cpp)
 
-target_include_directories(abieos-lib PRIVATE rapidjson/include date/include)
+target_include_directories(abieos-lib PRIVATE rapidjson/include date/include eosio/include)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
