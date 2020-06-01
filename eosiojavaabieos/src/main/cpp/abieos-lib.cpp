@@ -1,6 +1,8 @@
 
 #include <jni.h>
 #include <string>
+#include "int128.cpp"
+
 
 #include "../../../../abieos/src/abieos.h"
 
